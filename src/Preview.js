@@ -27,7 +27,7 @@ export default function Preview({ pokemon1, pokemon2 }) {
         </h4>
         <img src={pokemon1.sprites.front_default} alt="" />
         {pokemon1.stats.map((stat) => {
-          j=j+1
+          j=(j+1)%5
           return (
             <h4
               key={uuidv4()}
@@ -52,7 +52,7 @@ export default function Preview({ pokemon1, pokemon2 }) {
         </h4>
         <img src={pokemon2.sprites.front_default} alt="" />
         {pokemon2.stats.map((stat) => {
-          i=i+1
+          i=(i+1)%5
           return (
             <h4
               key={uuidv4()}
