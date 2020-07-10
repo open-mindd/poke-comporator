@@ -1,5 +1,5 @@
 import React from "react";
-
+const i = -1;
 export default function Preview({ pokemon1, pokemon2 }) {
   return (
     <div className="preview">
@@ -24,135 +24,43 @@ export default function Preview({ pokemon1, pokemon2 }) {
           {pokemon1.height}
         </h4>
         <img src={pokemon1.sprites.front_default} alt="" />
-        <h4
-          style={{
-            color:
-              pokemon1.stats[0].base_stat > pokemon2.stats[0].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon1.stats[0].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[1].base_stat > pokemon2.stats[1].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon1.stats[1].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[2].base_stat > pokemon2.stats[2].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon1.stats[2].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[3].base_stat > pokemon2.stats[3].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon1.stats[3].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[4].base_stat > pokemon2.stats[4].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon1.stats[4].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[5].base_stat > pokemon2.stats[5].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon1.stats[5].base_stat}
-        </h4>
+        {pokemon1.stats.map((stat) => {
+          return (
+            <h4
+              style={{
+                color:
+                  pokemon2.stats[i + 1].base_stat < stat.base_stat
+                    ? "green"
+                    : "red",
+              }}
+            >
+              {stat.base_stat}
+            </h4>
+          );
+        })}
       </div>
       <div>
         <h4>{pokemon2.name}</h4>
         <h4
-          style={{ color: pokemon1.height > pokemon2.height ? "green" : "red" }}
+          style={{ color: pokemon1.height < pokemon2.height ? "green" : "red" }}
         >
           {pokemon2.height}
         </h4>
         <img src={pokemon2.sprites.front_default} alt="" />
-        <h4
-          style={{
-            color:
-              pokemon1.stats[0].base_stat < pokemon2.stats[0].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon2.stats[0].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[1].base_stat < pokemon2.stats[1].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon2.stats[1].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[2].base_stat < pokemon2.stats[2].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon2.stats[2].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[3].base_stat < pokemon2.stats[3].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon2.stats[3].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[4].base_stat < pokemon2.stats[4].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon2.stats[4].base_stat}
-        </h4>
-        <h4
-          style={{
-            color:
-              pokemon1.stats[5].base_stat < pokemon2.stats[5].base_stat
-                ? "green"
-                : "red",
-          }}
-        >
-          {pokemon2.stats[5].base_stat}
-        </h4>
+        {pokemon2.stats.map((stat) => {
+          return (
+            <h4
+              style={{
+                color:
+                  pokemon1.stats[i + 1].base_stat < stat.base_stat
+                    ? "green"
+                    : "red",
+              }}
+            >
+              {stat.base_stat}
+            </h4>
+          );
+        })}
       </div>
     </div>
   );

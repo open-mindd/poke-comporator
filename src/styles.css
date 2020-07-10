@@ -1,7 +1,7 @@
 .holders {
   margin-left: 20px;
   display: grid;
-  grid-template-columns: 30% 30% 15%;
+  grid-template-columns: 40% 40% 15%;
   margin-left: 180px;
 }
 @media (max-width: 900px) {
