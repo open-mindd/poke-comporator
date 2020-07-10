@@ -1,5 +1,7 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 const i = -1;
+const j = -1;
 export default function Preview({ pokemon1, pokemon2 }) {
   return (
     <div className="preview">
@@ -27,9 +29,10 @@ export default function Preview({ pokemon1, pokemon2 }) {
         {pokemon1.stats.map((stat) => {
           return (
             <h4
+              key={uuidv4()}
               style={{
                 color:
-                  pokemon2.stats[i + 1].base_stat < stat.base_stat
+                  pokemon2.stats[j + 1].base_stat < stat.base_stat
                     ? "green"
                     : "red",
               }}
@@ -50,6 +53,7 @@ export default function Preview({ pokemon1, pokemon2 }) {
         {pokemon2.stats.map((stat) => {
           return (
             <h4
+              key={uuidv4()}
               style={{
                 color:
                   pokemon1.stats[i + 1].base_stat < stat.base_stat
